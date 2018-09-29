@@ -7,6 +7,7 @@ import asyncio
 import time
 import os
 
+Client = discord.Client ()
 bot = commands.Bot(command_prefix='%')
 
 @bot.command(pass_context=True)
@@ -134,4 +135,4 @@ async def kick(ctx, user: discord.Member):
     await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
     await bot.kick(user)
 
-client.run(os.getenv('TOKEN'))
+cbot.run(os.getenv('TOKEN'))
