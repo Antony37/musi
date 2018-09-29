@@ -83,7 +83,7 @@ async def info(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def botinfo(ctx):
-    embed = discord.Embed(title="Version", description="I'm now on version 1.35", color=0x00ff00)
+    embed = discord.Embed(title="Version", description="I'm now on version 1.46", color=0x00ff00)
     embed.set_footer(text="Made By wallvon")
     embed.set_author(name="Egroid")
     embed.add_field(name="Why am i made", value="I am made to do some simple tasks and to be sort of funny.", inline=True)
@@ -101,10 +101,25 @@ async def serverinfo(ctx):
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
-@commands.has_role("DJ")
-async def kick(ctx, user: discord.Member):
-    await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
-    await bot.kick(user)
+async def bothelp(ctx):
+    embed = discord.Embed(title="Need help? Click on the link below to join our support server!", description="https://discord.gg/MKgxBU9", color=0x00ff00)
+    embed.set_footer(text="Made By wallvon")
+    embed.set_author(name="Egroid")
+    embed.add_field(name="Need more help?", value="Ask a Developer.", inline=True)
+    await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def invite(ctx):
+    embed = discord.Embed(title="Want to invite Egroid? Click on the link below!", description="https://discordapp.com/oauth2/authorize?client_id=475685785040060437&permissions=2080898167&scope=bot", color=0x00ff00)
+    embed.set_footer(text="Made By wallvon")
+    embed.set_author(name="Egroid")
+    embed.add_field(name="Make Sure To Share Egroid With Friends.", value="Thanks For Using Egroid.", inline=True)
+    await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
+async def murder(ctx, user: discord.Member):
+    await bot.say("Egroid: You're gonna die! :gun:")
+    await bot.say("A person murderd, {}. Ya Dead Now!".format(user.name))
 
 @bot.command(pass_context=True)
 @commands.has_role("DJ")
@@ -112,4 +127,10 @@ async def ban(ctx, user: discord.Member):
     await bot.say("Cya, {}. Ya never gonna be seen again! :b: :a: :regional_indicator_n: :regional_indicator_n: :regional_indicator_e: :regional_indicator_d:  :b: :a: :b: :regional_indicator_y: ".format(user.name))
     await bot.ban(user)
 
-bot.run("process.env.token")
+@bot.command(pass_context=True)
+@commands.has_role("DJ")
+async def kick(ctx, user: discord.Member):
+    await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
+    await bot.kick(user)
+
+client.run(os.getenv('TOKEN'))
