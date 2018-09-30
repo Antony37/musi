@@ -19,12 +19,9 @@ async def on_ready():
     print ("With the ID: " + bot.user.id)
 
 @bot.command(pass_context=True)
-async def murder(ctx):
-    embed = discord.Embed(title="Egroid: You're gonna die! :gun:", description="Person: NOOOOOOO!", color=0x00ff00)
-    embed.set_footer(text="Made By wallvon")
-    embed.set_author(name="Egroid")
-    embed.add_field(name="A person murderd, {}. Ya Dead Now!".format(user.name))
-    await bot.say(embed=embed)
+async def murder(ctx, user: discord.Member):
+    await bot.say("Egroid: You're gonna die! :gun:")
+    await bot.say("A person murderd, {}. Ya Dead Now!".format(user.name))
 
 @bot.command(pass_context=True)
 async def pong(ctx):
