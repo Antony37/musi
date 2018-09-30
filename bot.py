@@ -18,15 +18,11 @@ async def on_ready():
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
 
-@bot.command(pass_context=True)
+@client.command(pass_context=True)
 async def ping(ctx):
-    """ Pong! """
-    await delete_message(ctx.message)
-    before = time.monotonic()
-    message = await ctx.send("Pong!")
-    ping = (time.monotonic() - before) * 1000
-    await message.edit(content=f"Pong!  `{int(ping)}ms`")
-    print(f'Ping {int(ping)}ms')
+    now = datetime.datetime.utcnow()
+    delta = now-ctx.message.timestamp
+    await client.say('{}ms'.format(delta(microseconds=1)))
 
 @bot.command(pass_context=True)
 async def drink(ctx):
