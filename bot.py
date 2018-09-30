@@ -18,11 +18,10 @@ async def on_ready():
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
 
-@client.command(pass_context=True)
+@bot.command(pass_context=True)
 async def ping(ctx):
-    now = datetime.datetime.utcnow()
-    delta = now-ctx.message.timestamp
-    await client.say('{}ms'.format(delta(microseconds=1)))
+    await bot.say(":ping_pong: Pong!")
+    print ("user has pinged")
 
 @bot.command(pass_context=True)
 async def drink(ctx):
