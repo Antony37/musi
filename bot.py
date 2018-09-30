@@ -21,7 +21,6 @@ async def on_ready():
 @bot.command()
 async def ping(ctx):
     return await ctx.send('Pong! {0}'.format(round(bot.latency, 1))
-    print ("user has pinged")
 
 @bot.command(pass_context=True)
 async def drink(ctx):
