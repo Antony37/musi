@@ -24,6 +24,11 @@ async def ping(ctx):
     print ("user has pinged")
 
 @bot.command(pass_context=True)
+async def pong(ctx):
+    await bot.say(":ping_pong: Ping!")
+    print ("user has ponged")
+    
+@bot.command(pass_context=True)
 async def drink(ctx):
     await bot.say("Here Ya Go! :tropical_drink:")
     print ("user has Drinked")
