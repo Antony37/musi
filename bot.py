@@ -19,11 +19,6 @@ async def on_ready():
     print ("With the ID: " + bot.user.id)
 
 @bot.command(pass_context=True)
-async def murder(ctx, user: discord.Member):
-    await bot.say("Egroid: You're gonna die! :gun:")
-    await bot.say("A person murderd, {}. Ya Dead Now!".format(user.name))
-
-@bot.command(pass_context=True)
 async def pong(ctx):
     await bot.say(":ping_pong: Ping!")
     print ("user has ponged")
