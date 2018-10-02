@@ -19,6 +19,11 @@ async def on_ready():
     print ("With the ID: " + bot.user.id)
 
 @bot.command(pass_context=True)
+async def ping(ctx):
+    await bot.say(":ping_pong: Pong!")
+    print ("user has pinged")
+
+@bot.command(pass_context=True)
 async def pong(ctx):
     await bot.say(":ping_pong: Ping!")
     print ("user has ponged")
