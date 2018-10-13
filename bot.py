@@ -28,7 +28,7 @@ async def join(ctx):
 async def disconnect(ctx):
     server = ctx.message.server
     voice_client = bot.voice_client_in(server)
-    await voice_client.disconnect()
+    await voice_client.leave()
 
 @bot.command(pass_context=True)
 async def ping(ctx):
