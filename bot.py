@@ -248,17 +248,6 @@ async def on_ready():
     print ("With the ID: " + bot.user.id)
 
 @bot.command(pass_context=True)
-async def join(ctx):
-    channel = ctx.message.author.voice.voice_channel
-    await bot.join_voice_channel(channel)
-
-@bot.command(pass_context=True)
-async def leave(ctx):
-    server = ctx.message.server
-    voice_client = bot.voice_client_in(server)
-    await voice_client.leave()
-
-@bot.command(pass_context=True)
 async def ping(ctx):
     await bot.say(":ping_pong: Pong!")
     print ("user has pinged")
