@@ -7,8 +7,6 @@ from discord.utils import find
 import asyncio
 import time
 import os
-import praw
-import random
 
 Client = discord.Client ()
 bot = commands.Bot(command_prefix='%')
