@@ -5,7 +5,6 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 from discord.utils import find
 import asyncio
-import PyNaCl
 import time
 import os
 
