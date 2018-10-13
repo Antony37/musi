@@ -1,3 +1,5 @@
 discord.py
 asyncio
+PyNaCl
 discord.py[voice]
+pip 18.1
