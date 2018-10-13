@@ -27,7 +27,7 @@ async def join(ctx):
 @bot.command(pass_context=True)
 async def leave(ctx):
     server = ctx.message.server
-    voice_bot = bot.voice_bot_in(server)
+    voice_bot = bot.voice_client_in(server)
     await voice_bot.leave()
 
 @bot.command(pass_context=True)
