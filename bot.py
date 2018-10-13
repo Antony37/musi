@@ -3,7 +3,6 @@
 import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
-from discord.utils import find
 import asyncio
 import time
 import os
@@ -18,12 +17,6 @@ async def on_ready():
     print ("I'm Ready, Fresh and Started!")
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
-
-@bot.event
-async def on_guild_join(guild):
-    general = find(lambda x: x.name == 'general',  guild.text_channels)
-    if general and general.permissions_for(guild.me).send_messages:
-        await general.send('Hello {}!'.format(guild.name))
 
 @bot.command(pass_context=True)
 async def ping(ctx):
