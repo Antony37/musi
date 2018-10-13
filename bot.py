@@ -23,7 +23,7 @@ async def on_ready():
 async def on_guild_join(guild):
     general = find(lambda x: x.name == 'general',  guild.text_channels)
     if general and general.permissions_for(guild.me).send_messages:
-        await general.send("Thanks for inviting me! If you need help join our support server.")
+        await general.send('Hello {}!'.format(guild.name))
 
 @bot.command(pass_context=True)
 async def ping(ctx):
