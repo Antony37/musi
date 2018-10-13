@@ -1,4 +1,2 @@
 discord.py
-install asyncio
-install asyncio --upgrade
 install discord.py[voice]
