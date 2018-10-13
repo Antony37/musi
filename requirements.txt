@@ -1,5 +1,4 @@
 discord.py
 asyncio
-asyncio --upgrade
 discord.py[voice]
 PyNaCl
