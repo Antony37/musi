@@ -15,6 +15,17 @@ if not discord.opus.is_loaded():
     # note that on windows this DLL is automatically provided for you
     discord.opus.load_opus('opus')
 
+Client = discord.Client ()
+bot = commands.Bot(command_prefix='%')
+
+@bot.command(pass_context=True)
+
+@bot.event
+async def on_ready():
+    print ("I'm Ready, Fresh and Started!")
+    print ("I am running on " + bot.user.name)
+    print ("With the ID: " + bot.user.id)
+
 def __init__(self, bot):
         self.bot = bot
 
@@ -235,17 +246,6 @@ def setup(bot):
     bot.add_cog(Music(bot))
     print('Music is loaded')
 
-
-Client = discord.Client ()
-bot = commands.Bot(command_prefix='%')
-
-@bot.command(pass_context=True)
-
-@bot.event
-async def on_ready():
-    print ("I'm Ready, Fresh and Started!")
-    print ("I am running on " + bot.user.name)
-    print ("With the ID: " + bot.user.id)
 
 @bot.command(pass_context=True)
 async def ping(ctx):
