@@ -1,4 +1,4 @@
 discord.py
 asyncio
 discord.py[voice]
-PyNaCl
+pynacl
