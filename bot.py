@@ -7,6 +7,8 @@ from discord.utils import find
 import asyncio
 import time
 import os
+import praw
+import random
 
 Client = discord.Client ()
 bot = commands.Bot(command_prefix='%')
@@ -18,6 +20,17 @@ async def on_ready():
     print ("I'm Ready, Fresh and Started!")
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
+
+@bot.command(pass_context=True)
+async def join(ctx):
+    channel = ctx.message.author.voice.voice_channel
+    await bot.join_voice_channel(channel)
+
+@bot.command(pass_context=True)
+async def leave(ctx):
+    server = ctx.message.server
+    voice_client = bot.voice_client_in(server)
+    await voice_client.leave()
 
 @bot.command(pass_context=True)
 async def ping(ctx):
