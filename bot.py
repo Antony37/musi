@@ -129,13 +129,13 @@ async def murder(ctx, user: discord.Member):
     await bot.say("A person murderd, {}. Ya Dead Now!".format(user.name))
 
 @bot.command(pass_context=True)
-@commands.has_role("DJ")
+@commands.has_role("Staff")
 async def ban(ctx, user: discord.Member):
     await bot.say("Cya, {}. Ya never gonna be seen again! :b: :a: :regional_indicator_n: :regional_indicator_n: :regional_indicator_e: :regional_indicator_d:  :b: :a: :b: :regional_indicator_y: ".format(user.name))
     await bot.ban(user)
 
 @bot.command(pass_context=True)
-@commands.has_role("DJ")
+@commands.has_role("Staff")
 async def kick(ctx, user: discord.Member):
     await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
     await bot.kick(user)
