@@ -26,6 +26,15 @@ async def ping(ctx):
     print ("user has pinged")
 
 @bot.command(pass_context=True)
+async def clear(ctx, amount=100):
+    channel = ctx.message.channel
+    messages = []
+    async for message in client.logs_from(channel, limit=int(amount)):
+        messages.append(message)
+    await client.delete_messages(messages)
+    await client.say("Messages Deleted.")
+
+@bot.command(pass_context=True)
 async def pong(ctx):
     await bot.say(":ping_pong: Ping!")
     print ("user has ponged")
