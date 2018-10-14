@@ -144,12 +144,12 @@ async def info(ctx, user: discord.Member):
 @bot.event
 async def on_reaction_add(reaction, user):
     channel = reaction.message.channel
-    await client.send_message(channel, '{} has added {} to the message: {}'.format(user.name, reaction.emoji, reaction.message.content))
+    await bot.send_message(channel, '{} has added {} to the message: {}'.format(user.name, reaction.emoji, reaction.message.content))
 
 @bot.event
 async def on_reaction_remove(reaction, user):
     channel = reaction.message.channel
-    await client.send_message(channel, '{} has removed {} from the message: {}'.format(user.name, reaction.emoji, reaction.message.content))
+    await bot.send_message(channel, '{} has removed {} from the message: {}'.format(user.name, reaction.emoji, reaction.message.content))
 
 @bot.command(pass_context=True)
 async def clear(ctx, amount=100):
