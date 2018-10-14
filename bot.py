@@ -100,6 +100,12 @@ async def info(ctx, user: discord.Member):
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
+async def meme(ctx, user: discord.Member):
+    embed = discord.Embed(title="Here is a meme:", color=0x00ff00)
+    embed.set_image(url=https://i.imgflip.com/2ckpnn.jpg)
+    await bot.say(embed=embed)
+
+@bot.command(pass_context=True)
 async def botinfo(ctx):
     embed = discord.Embed(title="Version", description="I'm now on version 1.46", color=0x00ff00)
     embed.set_footer(text="Made By Wallvon")
