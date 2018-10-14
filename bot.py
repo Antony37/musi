@@ -32,7 +32,7 @@ async def ping(ctx):
 #clear
 
 @bot.command(pass_context=True)
-async def clear(ctx, amount=100):
+async def clearmessage(ctx, amount=100):
     channel = ctx.message.channel
     messages = []
     async for message in bot.logs_from(channel, limit=int(amount)):
