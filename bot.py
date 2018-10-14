@@ -102,7 +102,7 @@ async def info(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 async def meme(ctx, user: discord.Member):
     embed = discord.Embed(title="Here is a meme:", color=0x00ff00)
-    embed.set_image(url=https://i.imgflip.com/2ckpnn.jpg)
+    embed.set_image(url='https://i.imgflip.com/2ckpnn.jpg')
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
