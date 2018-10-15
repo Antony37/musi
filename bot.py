@@ -165,10 +165,10 @@ async def clear(ctx, amount=100):
 
 @bot.command(pass_context=True)
 async def botinfo(ctx):
-    embed = discord.Embed(title="Version", description="I'm now on version 1.46", color=0x00ff00)
+    embed = discord.Embed(title="Version", description="I'm now on version 1.50 🎃", color=0x00ff00)
     embed.set_footer(text="Made By Wallvon")
     embed.set_author(name="Egroid")
-    embed.add_field(name="Why am i made", value="I am made to do some simple tasks and to be sort of funny.", inline=True)
+    embed.add_field(name="Why am i made", value="🎃 I am made to do some simple tasks and to be sort of funny. And it's Halloween time so good spooky nights! 🎃", inline=True)
     await bot.say(embed=embed)
 
 #botinfo
