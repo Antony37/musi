@@ -157,7 +157,7 @@ async def clear(ctx, amount=100):
     messages = []
     async for message in bot.logs_from(channel, limit=int(amount)):
         messages.append(message)
-    await client.delete_messages(messages)
+    await bot.delete_messages(messages)
 
 #message emoji reaction
 
