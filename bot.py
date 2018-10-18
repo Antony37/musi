@@ -8,8 +8,7 @@ import asyncio
 import time
 import os
 
-Client = discord.Client ()
-bot = commands.Bot(command_prefix='%')
+bot = Bot(command_prefix='%')
 
 @bot.command(pass_context=True)
 
