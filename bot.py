@@ -8,7 +8,8 @@ import asyncio
 import time
 import os
 
-bot = Bot(command_prefix='%')
+Client = discord.Client ()
+bot = commands.Bot(command_prefix='%')
 
 @bot.command(pass_context=True)
 
@@ -138,6 +139,7 @@ async def info(ctx, user: discord.Member):
 
 #info
 
+#message emoji reaction
 
 @bot.event
 async def on_reaction_add(reaction, user):
@@ -155,8 +157,9 @@ async def clear(ctx, amount=100):
     messages = []
     async for message in bot.logs_from(channel, limit=int(amount)):
         messages.append(message)
-    await bot.delete_messages(messages)
+    await client.delete_messages(messages)
 
+#message emoji reaction
 
 #botinfo
 
