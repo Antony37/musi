@@ -139,7 +139,6 @@ async def info(ctx, user: discord.Member):
 
 #info
 
-#message emoji reaction
 
 @bot.event
 async def on_reaction_add(reaction, user):
@@ -159,7 +158,6 @@ async def clear(ctx, amount=100):
         messages.append(message)
     await bot.delete_messages(messages)
 
-#message emoji reaction
 
 #botinfo
 
