@@ -21,7 +21,7 @@ async def on_ready():
     print ("With the ID: " + bot.user.id)
 
 @bot.event
-aync def on_member_join(member):
+async def on_member_join(member):
 print("Recogniced that a member called " + member.name + " joined")
 await bot.send_message(member, "Welcome to the server!")
 print("Sent.message to " + member.name)
