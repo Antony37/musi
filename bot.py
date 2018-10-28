@@ -21,10 +21,10 @@ async def on_ready():
     print ("With the ID: " + bot.user.id)
 
 @bot.event
-async def on_member_join(member):
-    print("Recogniced that a member called " + member.name + " joined")
-    await bot.send_message(member, "Welcome to the server!")
-    print("Sent.message to " + member.name)
+aync def on_member_join(member):
+print("Recogniced that a member called " + member.name + " joined")
+await client.send_message(member, "Welcome to the {}!".format(ctx.message.server.name))
+print("Sent.message to " + member.name)
 
 #ping
 
