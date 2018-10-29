@@ -29,9 +29,10 @@ async def on_member_join(member):
 #ping
 
 @bot.command(pass_context=True)
-async def ping(ctx):
-    await bot.say(":ping_pong: Pong!")
-    print ("user has pinged")
+async def ping_ms(ctx):
+    t = await bot.say('Pong!')
+    ms = (t.timestamp-ctx.message.timestamp).total_seconds() * 1000
+    await bot.edit_message(t, new_content='Pong! Took: {}ms'.format(int(ms)))
 
 #ping
 
@@ -47,15 +48,6 @@ async def clearmessage(ctx, amount=100):
     await bot.say("Messages Deleted.")
 
 #clear
-
-#pong
-
-@bot.command(pass_context=True)
-async def pong(ctx):
-    await bot.say(":ping_pong: Ping!")
-    print ("user has ponged")
-
-#pong
 
 #drink
 
