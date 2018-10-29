@@ -29,7 +29,7 @@ async def on_member_join(member):
 #ping
 
 @bot.command(pass_context=True)
-async def ping_ms(ctx):
+async def ping(ctx):
     t = await bot.say('Pong!')
     ms = (t.timestamp-ctx.message.timestamp).total_seconds() * 1000
     await bot.edit_message(t, new_content='Pong! Took: {}ms'.format(int(ms)))
