@@ -166,7 +166,7 @@ async def botinfo(ctx):
     embed = discord.Embed(title="Version", description="I'm now on version 1.73", color=0x00ff00)
     embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
-    embed.add_field(name="Why am i made", value="I am made to do some simple tasks and to be sort of funny.", inline=True)
+    embed.add_field(name="Where is the source code?", value="https://github.com/Wallvon/egroidbot", inline=True)
     await bot.say(embed=embed)
 
 #botinfo
