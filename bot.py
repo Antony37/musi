@@ -15,7 +15,7 @@ bot = commands.Bot(command_prefix='%')
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(game=discord.Game(name='%bothelp, %invite 🎃'))
+    await bot.change_presence(game=discord.Game(name='%bothelp, %invite, Made with ❤️ by Wallvon'))
     print ("I'm Ready, Fresh and Started!")
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
@@ -163,10 +163,10 @@ async def clear(ctx, amount=100):
 
 @bot.command(pass_context=True)
 async def botinfo(ctx):
-    embed = discord.Embed(title="Version", description="I'm now on version 1.50 🎃", color=0x00ff00)
-    embed.set_footer(text="Made By Wallvon")
+    embed = discord.Embed(title="Version", description="I'm now on version 1.73", color=0x00ff00)
+    embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
-    embed.add_field(name="Why am i made", value="🎃 I am made to do some simple tasks and to be sort of funny. And it's Halloween time so good spooky nights! 🎃", inline=True)
+    embed.add_field(name="Why am i made", value="I am made to do some simple tasks and to be sort of funny.", inline=True)
     await bot.say(embed=embed)
 
 #botinfo
@@ -191,7 +191,7 @@ async def serverinfo(ctx):
 @bot.command(pass_context=True)
 async def bothelp(ctx):
     embed = discord.Embed(title="Need help? Click on the link below to join our support server!", description="https://discord.gg/MKgxBU9", color=0x00ff00)
-    embed.set_footer(text="Made By Wallvon")
+    embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
     embed.add_field(name="Need more help?", value="Ask a Developer.", inline=True)
     await bot.say(embed=embed)
@@ -203,7 +203,7 @@ async def bothelp(ctx):
 @bot.command(pass_context=True)
 async def invite(ctx):
     embed = discord.Embed(title="Want to invite Egroid? Click on the link below!", description="https://discordapp.com/oauth2/authorize?client_id=475685785040060437&permissions=2080898167&scope=bot", color=0x00ff00)
-    embed.set_footer(text="Made By Wallvon")
+    embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
     embed.add_field(name="Make Sure To Share Egroid With Friends.", value="Thanks For Using Egroid.", inline=True)
     await bot.say(embed=embed)
