@@ -1,4 +1,4 @@
-# Egroid (First Herman) by Wallvon
+# Egroid made with ❤️ by Wallvon
 
 import discord
 from discord.ext import commands
@@ -23,7 +23,7 @@ async def on_ready():
 @bot.event
 async def on_member_join(member):
     print("Recogniced that a member called " + member.name + " joined")
-    await bot.send_message(member, "Welcome to the server!")
+    await bot.send_message(member, "Welcome to the server! I hope you have a great time!")
     print("Sent message to " + member.name)
 
 #ping
@@ -163,7 +163,7 @@ async def clear(ctx, amount=100):
 
 @bot.command(pass_context=True)
 async def botinfo(ctx):
-    embed = discord.Embed(title="Version", description="I'm now on version 1.73", color=0x00ff00)
+    embed = discord.Embed(title="Version", description="I'm now on version 1.75", color=0x00ff00)
     embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
     embed.add_field(name="Where is the source code?", value="https://github.com/Wallvon/egroidbot", inline=True)
@@ -218,6 +218,15 @@ async def murder(ctx, user: discord.Member):
     await bot.say("A person murderd, {}. Ya Dead Now!".format(user.name))
 
 #murder
+
+#heal
+
+@bot.command(pass_context=True)
+async def heal(ctx, user: discord.Member):
+    await bot.say("Egroid: Here get a bandage")
+    await bot.say("A person healed, {}. Ya Alive Now!".format(user.name))
+
+#heal
 
 #ban
 
