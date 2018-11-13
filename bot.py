@@ -39,6 +39,7 @@ async def ping(ctx):
 #clear
 
 @bot.command(pass_context=True)
+@commands.has_role("Staff")
 async def clearmessage(ctx, amount=100):
     channel = ctx.message.channel
     messages = []
