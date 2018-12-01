@@ -141,10 +141,12 @@ async def info(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def avatar(ctx, user: discord.Member):
-    embed = discord.Embed(title="{}'s avatar".format(user.name), color=0x00ff00)
-    embed.set_thumbnail(url=user.avatar_url)
+    embed = discord.Embed(title="{}'s info".format(user.name), color=0x00ff00)
+    embed.set_image(url=user.avatar_url)
     await bot.say(embed=embed)
-
+    if not user:
+        return # Can't find the user, then quit
+        
 #avatar
 
 #message emoji reaction
