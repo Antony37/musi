@@ -141,10 +141,11 @@ async def info(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def avatar(ctx, user: discord.Member):
-if (message.mentions.__len__() > 0):
-    for user in message.mentions:
-        print(user.avatar_url)
-        
+    embed = discord.Embed(title="{}'s avatar".format(user.name), color=0x00ff00)
+    embed.add_field(name="Name", value=user.name, inline=True)
+    embed.set_image(url=user.avatar_url)
+    await bot.say(embed=embed)
+
 #avatar
 
 #message emoji reaction
