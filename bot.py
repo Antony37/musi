@@ -39,7 +39,6 @@ async def ping(ctx):
 #clear
 
 @bot.command(pass_context=True)
-@commands.has_role("Staff")
 async def clearmessage(ctx, amount=100):
     channel = ctx.message.channel
     messages = []
@@ -137,6 +136,16 @@ async def info(ctx, user: discord.Member):
     await bot.say(embed=embed)
 
 #info
+
+#avatar
+
+@bot.command(pass_context=True)
+async def avatar(ctx, user: discord.Member):
+    embed = discord.Embed(title="{}'s avatar".format(user.name), color=0x00ff00)
+    embed.set_thumbnail(url=user.avatar_url)
+    await bot.say(embed=embed)
+
+#avatar
 
 #message emoji reaction
 
