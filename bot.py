@@ -141,9 +141,9 @@ async def info(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def avatar(ctx, user: discord.Member):
-    embed = discord.Embed(title="{}'s avatar".format(user.name), color=0x00ff00)
+    embed = discord.Embed(title="{}'s avatar".format(user.name), description="Here's what I could find.", color=0x00ff00)
     embed.add_field(name="Name", value=user.name, inline=True)
-    embed.set_image(url=user.avatar_url)
+    embed.set_thumbnail(url=user.avatar_url)
     await bot.say(embed=embed)
 
 #avatar
@@ -174,7 +174,7 @@ async def clear(ctx, amount=100):
 
 @bot.command(pass_context=True)
 async def botinfo(ctx):
-    embed = discord.Embed(title="Version", description="I'm now on version 1.75", color=0x00ff00)
+    embed = discord.Embed(title="Version", description="I'm now on version 1.77", color=0x00ff00)
     embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
     embed.add_field(name="Where is the source code?", value="https://github.com/Wallvon/egroidbot", inline=True)
