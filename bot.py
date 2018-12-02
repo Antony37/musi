@@ -31,7 +31,7 @@ async def on_member_join(member):
 
 class Main_Commands():
     def __init__(self, bot):
-    self.bot = bot
+     self.bot = bot
 
 #ping
 
