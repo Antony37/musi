@@ -4,22 +4,24 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord.utils import find
+from discord.voice_client import VoiceClient
 import asyncio
 import time
 import os
 
-Client = discord.Client()
+startup_extensions = ["Music"]
+
+Client = discord.Client ()
 bot = commands.Bot(command_prefix='%')
 
-
 @bot.command(pass_context=True)
+
 @bot.event
 async def on_ready():
     await bot.change_presence(game=discord.Game(name='%bothelp, %invite, Made with ❤️ by Wallvon'))
-    print("I'm Ready, Fresh and Started!")
-    print("I am running on " + bot.user.name)
-    print("With the ID: " + bot.user.id)
-
+    print ("I'm Ready, Fresh and Started!")
+    print ("I am running on " + bot.user.name)
+    print ("With the ID: " + bot.user.id)
 
 @bot.event
 async def on_member_join(member):
@@ -27,8 +29,11 @@ async def on_member_join(member):
     await bot.send_message(member, "Welcome to the server! I hope you have a great time!")
     print("Sent message to " + member.name)
 
-#ping
+class Main_Commands():
+    def__init__(self, bot):
+    self.bot = bot
 
+#ping
 
 @bot.command(pass_context=True)
 async def ping(ctx):
@@ -40,8 +45,8 @@ async def ping(ctx):
 
 #clear
 
-
 @bot.command(pass_context=True)
+@commands.has_role("Staff")
 async def clearmessage(ctx, amount=100):
     channel = ctx.message.channel
     messages = []
@@ -54,26 +59,23 @@ async def clearmessage(ctx, amount=100):
 
 #drink
 
-
 @bot.command(pass_context=True)
 async def drink(ctx):
     await bot.say("Here Ya Go! :tropical_drink:")
-    print("user has Drinked")
+    print ("user has Drinked")
 
 #drink
 
 #food
 
-
 @bot.command(pass_context=True)
 async def food(ctx):
     await bot.say("Here Is Ya Food! :cookie:")
-    print("user has Eaten")
+    print ("user has Eaten")
 
 #food
 
 #hi
-
 
 @bot.command(pass_context=True)
 async def hi(ctx):
@@ -82,7 +84,6 @@ async def hi(ctx):
 #hi
 
 #story
-
 
 @bot.command(pass_context=True)
 async def story(ctx):
@@ -93,7 +94,6 @@ async def story(ctx):
 #story
 
 #kill
-
 
 @bot.command(pass_context=True)
 async def kill(ctx):
@@ -116,12 +116,11 @@ async def kill(ctx):
     await bot.say("*You fell dead* :gravestone:")
     await bot.say("FBI'S Gun: **Pow!**")
     await bot.say("Egroid fell dead :gravestone:")
-    print("The Kill command is used")
+    print ("The Kill command is used")
 
 #kill
 
 #changelanguage
-
 
 @bot.command(pass_context=True)
 async def changelanguage(ctx):
@@ -133,11 +132,9 @@ async def changelanguage(ctx):
 
 #info
 
-
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
-    embed = discord.Embed(title="{}'s info".format(
-        user.name), description="Here's what I could find.", color=0x00ff00)
+    embed = discord.Embed(title="{}'s info".format(user.name), description="Here's what I could find.", color=0x00ff00)
     embed.add_field(name="Name", value=user.name, inline=True)
     embed.add_field(name="ID", value=user.id, inline=True)
     embed.add_field(name="Status", value=user.status, inline=True)
@@ -150,18 +147,15 @@ async def info(ctx, user: discord.Member):
 
 #message emoji reaction
 
-
 @bot.event
 async def on_reaction_add(reaction, user):
     channel = reaction.message.channel
     await bot.send_message(channel, '{} has added {} to the message: {}'.format(user.name, reaction.emoji, reaction.message.content))
 
-
 @bot.event
 async def on_reaction_remove(reaction, user):
     channel = reaction.message.channel
     await bot.send_message(channel, '{} has removed {} from the message: {}'.format(user.name, reaction.emoji, reaction.message.content))
-
 
 @bot.command(pass_context=True)
 async def clear(ctx, amount=100):
@@ -175,31 +169,25 @@ async def clear(ctx, amount=100):
 
 #botinfo
 
-
 @bot.command(pass_context=True)
 async def botinfo(ctx):
-    embed = discord.Embed(
-        title="Version", description="I'm now on version 1.77", color=0x00ff00)
+    embed = discord.Embed(title="Version", description="I'm now on version 1.75", color=0x00ff00)
     embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
-    embed.add_field(name="Where is the source code?",
-                    value="https://github.com/Wallvon/egroidbot", inline=True)
+    embed.add_field(name="Where is the source code?", value="https://github.com/Wallvon/egroidbot", inline=True)
     await bot.say(embed=embed)
 
 #botinfo
 
 #serverinfo
 
-
 @bot.command(pass_context=True)
 async def serverinfo(ctx):
-    embed = discord.Embed(name="{}'s info".format(
-        ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
+    embed = discord.Embed(name="{}'s info".format(ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
     embed.set_author(name="Egroid")
     embed.add_field(name="Name", value=ctx.message.server.name, inline=True)
     embed.add_field(name="ID", value=ctx.message.server.id, inline=True)
-    embed.add_field(name="Roles", value=len(
-        ctx.message.server.roles), inline=True)
+    embed.add_field(name="Roles", value=len(ctx.message.server.roles), inline=True)
     embed.add_field(name="Members", value=len(ctx.message.server.members))
     embed.set_thumbnail(url=ctx.message.server.icon_url)
     await bot.say(embed=embed)
@@ -208,36 +196,29 @@ async def serverinfo(ctx):
 
 #bothelp
 
-
 @bot.command(pass_context=True)
 async def bothelp(ctx):
-    embed = discord.Embed(title="Need help? Click on the link below to join our support server!",
-                          description="https://discord.gg/MKgxBU9", color=0x00ff00)
+    embed = discord.Embed(title="Need help? Click on the link below to join our support server!", description="https://discord.gg/MKgxBU9", color=0x00ff00)
     embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
-    embed.add_field(name="Need more help?",
-                    value="Ask a Developer.", inline=True)
+    embed.add_field(name="Need more help?", value="Ask a Developer.", inline=True)
     await bot.say(embed=embed)
 
 #bothelp
 
 #invite
 
-
 @bot.command(pass_context=True)
 async def invite(ctx):
-    embed = discord.Embed(title="Want to invite Egroid? Click on the link below!",
-                          description="https://discordapp.com/oauth2/authorize?client_id=475685785040060437&permissions=2080898167&scope=bot", color=0x00ff00)
+    embed = discord.Embed(title="Want to invite Egroid? Click on the link below!", description="https://discordapp.com/oauth2/authorize?client_id=475685785040060437&permissions=2080898167&scope=bot", color=0x00ff00)
     embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
-    embed.add_field(name="Make Sure To Share Egroid With Friends.",
-                    value="Thanks For Using Egroid.", inline=True)
+    embed.add_field(name="Make Sure To Share Egroid With Friends.", value="Thanks For Using Egroid.", inline=True)
     await bot.say(embed=embed)
 
 #invite
 
 #murder
-
 
 @bot.command(pass_context=True)
 async def murder(ctx, user: discord.Member):
@@ -248,7 +229,6 @@ async def murder(ctx, user: discord.Member):
 
 #heal
 
-
 @bot.command(pass_context=True)
 async def heal(ctx, user: discord.Member):
     await bot.say("Egroid: Here get a bandage")
@@ -257,7 +237,6 @@ async def heal(ctx, user: discord.Member):
 #heal
 
 #ban
-
 
 @bot.command(pass_context=True)
 @commands.has_role("Staff")
@@ -269,7 +248,6 @@ async def ban(ctx, user: discord.Member):
 
 #kick
 
-
 @bot.command(pass_context=True)
 @commands.has_role("Staff")
 async def kick(ctx, user: discord.Member):
@@ -277,5 +255,17 @@ async def kick(ctx, user: discord.Member):
     await bot.kick(user)
 
 #kick
+
+#music
+
+if __name__ == "__main__":
+    for extension in startup_extensions:
+        try:
+            bot.load_extension(extention)
+        except Exception as e:
+            exc = '{}: {}'.format(type(e).__name__, e)
+            print('failed to load extention {}\n{}'.format(extension, exc))
+
+#music
 
 bot.run(os.getenv('TOKEN'))
