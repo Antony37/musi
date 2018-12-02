@@ -261,7 +261,7 @@ async def kick(ctx, user: discord.Member):
 if __name__ == "__main__":
     for extension in startup_extensions:
         try:
-            bot.load_extension(extention)
+            bot.load_extension(extension)
         except Exception as e:
             exc = '{}: {}'.format(type(e).__name__, e)
             print('failed to load extention {}\n{}'.format(extension, exc))
