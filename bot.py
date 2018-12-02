@@ -198,7 +198,7 @@ async def clear(ctx, amount=100):
 
 @bot.command(pass_context=True)
 async def botinfo(ctx):
-    embed = discord.Embed(title="Version", description="I'm now on version 1.75", color=0x00ff00)
+    embed = discord.Embed(title="Version", description="I'm now on version 1.80", color=0x00ff00)
     embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
     embed.add_field(name="Where is the source code?", value="https://github.com/Wallvon/egroidbot", inline=True)
