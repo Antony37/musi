@@ -1,2 +1,2 @@
 worker: python bot.py
-worker: puthon Music.py
+worker: python Music.py
