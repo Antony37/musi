@@ -4,12 +4,9 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord.utils import find
-from discord.voice_client import VoiceClient
 import asyncio
 import time
 import os
-
-startup_extensions = ["Music"]
 
 Client = discord.Client ()
 bot = commands.Bot(command_prefix='%')
@@ -28,10 +25,6 @@ async def on_member_join(member):
     print("Recogniced that a member called " + member.name + " joined")
     await bot.send_message(member, "Welcome to the server! I hope you have a great time!")
     print("Sent message to " + member.name)
-
-class Main_Commands():
-    def__init__(self, bot):
-    self.bot = bot
 
 #ping
 
@@ -255,17 +248,5 @@ async def kick(ctx, user: discord.Member):
     await bot.kick(user)
 
 #kick
-
-#music
-
-if __name__ == "__main__":
-    for extension in startup_extensions:
-        try:
-            bot.load_extension(extention)
-        except Exception as e:
-            exc = '{}: {}'.format(type(e).__name__, e)
-            print('failed to load extention {}\n{}'.format(extension, exc))
-
-#music
 
 bot.run(os.getenv('TOKEN'))
