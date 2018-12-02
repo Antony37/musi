@@ -3,4 +3,4 @@ asyncio
 discord.py[voice] ~= 0.12.0
 youtube_dl
 pip
-
+pynacl
