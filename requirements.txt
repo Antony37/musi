@@ -3,4 +3,5 @@ asyncio
 discord.py[voice] ~= 0.12.0
 youtube_dl
 pip
-ffmpeg
+git
+git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
