@@ -2,6 +2,8 @@
 
 Egroid is an open source Discord.py bot.
 
+------------------------------------------------------------------------------------------------------------------------------------------
+
 You can use the code but here are the requierements:
 
 Discord (For chatting and communicating with the bot)
