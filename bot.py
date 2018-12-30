@@ -65,6 +65,7 @@ class Main_Commands():
 
 @bot.command(pass_context=True)
 async def ping(ctx):
+    """Pings the bot."""
     t = await bot.say('Pong!')
     ms = (t.timestamp-ctx.message.timestamp).total_seconds() * 1000
     await bot.edit_message(t, new_content='Pong! Took: {}ms'.format(int(ms)))
@@ -76,6 +77,7 @@ async def ping(ctx):
 @bot.command(pass_context=True)
 @commands.has_role("Staff")
 async def clearmessage(ctx, amount=100):
+    """Clears the amount of messages that you filled in -1."""
     channel = ctx.message.channel
     messages = []
     async for message in bot.logs_from(channel, limit=int(amount)):
@@ -89,6 +91,7 @@ async def clearmessage(ctx, amount=100):
 
 @bot.command(pass_context=True)
 async def drink(ctx):
+    """Gives you a virtual drink."""
     await bot.say("Here Ya Go! :tropical_drink:")
     print ("user has Drinked")
 
@@ -98,6 +101,7 @@ async def drink(ctx):
 
 @bot.command(pass_context=True)
 async def food(ctx):
+    """Gives you virtual food."""
     await bot.say("Here Is Ya Food! :cookie:")
     print ("user has Eaten")
 
@@ -107,6 +111,7 @@ async def food(ctx):
 
 @bot.command(pass_context=True)
 async def hi(ctx):
+    """Says hi to the bot."""
     await bot.say("Hey! :wave:")
 
 #hi
@@ -115,6 +120,7 @@ async def hi(ctx):
 
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
+    """Gives info about the user. Usage: %info [Username]."""
     embed = discord.Embed(title="{}'s info".format(user.name), description="Here's what I could find.", color=0x00ff00)
     embed.add_field(name="Name", value=user.name, inline=True)
     embed.add_field(name="ID", value=user.id, inline=True)
@@ -152,7 +158,8 @@ async def clear(ctx, amount=100):
 
 @bot.command(pass_context=True)
 async def botinfo(ctx):
-    embed = discord.Embed(title="Version", description="I'm now on version 1.84", color=0x00ff00)
+    """Gives info about the bot."""
+    embed = discord.Embed(title="Version", description="I'm now on version 1.85", color=0x00ff00)
     embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
     embed.add_field(name="Where is the source code?", value="https://github.com/Wallvon/egroidbot", inline=True)
@@ -164,6 +171,7 @@ async def botinfo(ctx):
 
 @bot.command(pass_context=True)
 async def serverinfo(ctx):
+    """Gives info about the server where the command was executed."""
     embed = discord.Embed(name="{}'s info".format(ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
     embed.set_author(name="Egroid")
     embed.add_field(name="Name", value=ctx.message.server.name, inline=True)
@@ -179,7 +187,8 @@ async def serverinfo(ctx):
 
 @bot.command(pass_context=True)
 async def support(ctx):
-    embed = discord.Embed(title="Need help? Click on the link below to join our support server!", description="https://discord.gg/MKgxBU9", color=0x00ff00)
+    """Gives you a link to the support server."""
+    embed = discord.Embed(title="Need help? Click on the link below to join our support server!", description="https://discord.gg/HGEfujy", color=0x00ff00)
     embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
     embed.add_field(name="Need more help?", value="Ask a Developer.", inline=True)
@@ -191,6 +200,7 @@ async def support(ctx):
 
 @bot.command(pass_context=True)
 async def invite(ctx):
+    """Gives you a link to invite the bot."""
     embed = discord.Embed(title="Want to invite Egroid? Click on the link below!", description="https://discordapp.com/oauth2/authorize?client_id=475685785040060437&permissions=2080898167&scope=bot", color=0x00ff00)
     embed.set_footer(text="Made with ❤️ by Wallvon")
     embed.set_author(name="Egroid")
@@ -203,6 +213,7 @@ async def invite(ctx):
 
 @bot.command(pass_context=True)
 async def murder(ctx, user: discord.Member):
+    """Murders someone. Usage: %murder [Username]."""
     await bot.say("Egroid: You're gonna die! :gun:")
     await bot.say("A person murderd, {}. Ya Dead Now!".format(user.name))
 
@@ -212,6 +223,7 @@ async def murder(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def heal(ctx, user: discord.Member):
+    """Heals someone. Usage: %heal [Username]."""
     await bot.say("Egroid: Here get a bandage")
     await bot.say("A person healed, {}. Ya Alive Now!".format(user.name))
 
@@ -222,6 +234,7 @@ async def heal(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 @commands.has_role("Staff")
 async def ban(ctx, user: discord.Member):
+    """Bans someone (needs the role Staff). Usage: %ban [Username]."""
     await bot.say("Cya, {}. Ya never gonna be seen again! :b: :a: :regional_indicator_n: :regional_indicator_n: :regional_indicator_e: :regional_indicator_d:  :b: :a: :b: :regional_indicator_y: ".format(user.name))
     await bot.ban(user)
 
@@ -232,6 +245,7 @@ async def ban(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 @commands.has_role("Staff")
 async def kick(ctx, user: discord.Member):
+    """Kicks someone (needs the role Staff). Usage: %kick [Username]."""
     await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
     await bot.kick(user)
 
