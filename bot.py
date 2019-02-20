@@ -45,7 +45,7 @@ bot = commands.Bot(command_prefix='%')
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(game=discord.Game(name=len(self.bot.servers) 'Servers | %help'))
+    await bot.change_presence(game=discord.Game(name='Servers | %help'))
     print ("I'm Ready, Fresh and Started!")
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
