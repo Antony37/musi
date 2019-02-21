@@ -79,7 +79,7 @@ async def on_message(message):
         with open('users.json', 'w') as f:
             json.dump(users, f)
 
-async def update_data(users, user)
+async def update_data(users, user):
     if not user.id in users:
         users[user.id] = {}
         users[user.id]['experience'] = 0
