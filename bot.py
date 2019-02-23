@@ -251,4 +251,4 @@ if __name__ == "__main__":
 
 #music
 
-bot.run(os.getenv('TOKEN'))
+bot.run('NTQ4Nzg0MzMyMjkxMTc4NDk2.D1KW2A.RSoFooLaN7Jfek3D0hrnmjrgjt0')
