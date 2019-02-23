@@ -230,7 +230,7 @@ class Music:
     async def djskip(self, ctx):
         state = self.get_voice_state(ctx.message.server)
         state.skip()
-        await bot.say('DJ skipped the current Song.
+        await bot.say(f'{ctx.message.author.mention} skipped the current Song.')
 
 def setup(bot):
     bot.add_cog(Music(bot))
