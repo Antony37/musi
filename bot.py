@@ -65,8 +65,8 @@ class Main_Commands():
 
 @bot.event
 async def on_message(message):
-    if message.content == 'wave prefix':
-        await bot.say('My Prefix is **%**')
+    if message.content.startswith('gimmecookie'):
+        await bot.say('Here is ya Cookie :cookie:')
     await bot.process_commands(message)
 
 @bot.command(pass_context=True)
