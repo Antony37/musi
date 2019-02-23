@@ -63,6 +63,12 @@ class Main_Commands():
 
 #ping
 
+@bot.event
+async def on_message(message):
+    if message.content == 'wave prefix':
+        await bot.say('My Prefix is **%**')
+    await bot.process_commands(message)
+
 @bot.command(pass_context=True)
 async def ping(ctx):
     """Pings the bot."""
