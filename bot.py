@@ -263,4 +263,15 @@ if __name__ == "__main__":
 
 #music
 
+#servers
+
+@bot.command(pass_context=True)
+async def servers(ctx):
+    """List of the Servers the Bot is on"""
+    await bot.say("Bot runs on the Servers:\n")
+    for s in bot.servers:
+        await bot.say(f' ```{s.name}```')
+
+#server
+
 bot.run('NTQ4Nzg0MzMyMjkxMTc4NDk2.D1KW2A.RSoFooLaN7Jfek3D0hrnmjrgjt0')
