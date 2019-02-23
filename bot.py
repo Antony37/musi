@@ -274,4 +274,13 @@ async def servers(ctx):
 
 #server
 
+#say
+
+@bot.command(pass_context=True)
+async def say(ctx, *, saymsg):
+    output = saymsg
+    message = ctx.message
+    await client.delete_message(message)
+    await client.say(output)
+
 bot.run('NTQ4Nzg0MzMyMjkxMTc4NDk2.D1KW2A.RSoFooLaN7Jfek3D0hrnmjrgjt0')
