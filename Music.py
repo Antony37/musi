@@ -225,6 +225,29 @@ class Music:
             skip_count = len(state.skip_votes)
             await self.bot.say('Now playing {} [skips: {}/3]'.format(state.current, skip_count))
             
+    @commands.command(pass_context=True, no_pm=True)
+    @commands.has_role("DJ")
+        state = self.get_voice_state(ctx.message.server)
+        if not state.is_playing():
+            await self.bot.say('Not playing any music right now...')
+            return
+
+        voter = ctx.message.author
+        if voter == state.current.requester:
+            await self.bot.say('DJ requested skipping song...')
+            state.skip()
+        elif voter.id not in state.skip_votes:
+            state.skip_votes.add(voter.id)
+            total_votes = len(state.skip_votes)
+            if total_votes >= 3:
+                await self.bot.say('Skip vote passed, skipping song...')
+                state.skip()
+            else:
+                await self.bot.say('Skip vote added, currently at [{}/3]'.format(total_votes))
+        else:
+            await self.bot.say('You have already voted to skip this song.')
+            
+            
 def setup(bot):
     bot.add_cog(Music(bot))
     print('Music is loaded')
