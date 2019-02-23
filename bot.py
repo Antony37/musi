@@ -278,9 +278,10 @@ async def servers(ctx):
 
 @bot.command(pass_context=True)
 async def say(ctx, *, saymsg):
+    """Say Command"""
     output = saymsg
     message = ctx.message
-    await client.delete_message(message)
-    await client.say(output)
+    await bot.delete_message(message)
+    await bot.say(output)
 
 bot.run('NTQ4Nzg0MzMyMjkxMTc4NDk2.D1KW2A.RSoFooLaN7Jfek3D0hrnmjrgjt0')
