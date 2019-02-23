@@ -65,8 +65,10 @@ class Main_Commands():
 
 @bot.event
 async def on_message(message):
+    channel = message.channel
+    author = message.author.mention
     if message.content.startswith('gimmecookie'):
-        await bot.say('Here is ya Cookie :cookie:')
+        await bot.send_message(channel, '{}, Here is ya Cookie :cookie:'.format(author))
     await bot.process_commands(message)
 
 @bot.command(pass_context=True)
