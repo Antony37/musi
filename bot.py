@@ -196,6 +196,18 @@ async def support(ctx):
 
 #support
 
+#invite
+
+@bot.command(pass_context=True)
+async def invite(ctx):
+    """Gives you a link to invite the bot."""
+    embed = discord.Embed(title="Want to invite Wave? Click on the link below!", description="https://discordapp.com/oauth2/authorize?client_id=548784332291178496&scope=bot&permissions=8", color=0x00ff00)
+    embed.set_footer(text="Made with ❤️ by Lenaa")
+    embed.set_author(name="Wave")
+    embed.add_field(name="Make Sure To Share Wave With Friends.", value="Thanks For Using Wave.", inline=True)
+    await bot.say(embed=embed)
+
+#invite
 
 #murder
 
