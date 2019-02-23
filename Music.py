@@ -227,6 +227,7 @@ class Music:
             
     @commands.command(pass_context=True, no_pm=True)
     @commands.has_role("DJ")
+    async def djskip(self, ctx):
         state = self.get_voice_state(ctx.message.server)
         if not state.is_playing():
             await self.bot.say('Not playing any music right now...')
