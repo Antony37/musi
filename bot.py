@@ -39,7 +39,7 @@ load_opus_lib()
 startup_extensions = ["Music"]
 
 Client = discord.Client ()
-bot = commands.Bot(command_prefix='%')
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('%'))
 
 @bot.command(pass_context=True)
 
@@ -159,10 +159,10 @@ async def clear(ctx, amount=100):
 @bot.command(pass_context=True)
 async def botinfo(ctx):
     """Gives info about the bot."""
-    embed = discord.Embed(title="Version", description="I'm now on version 1.85", color=0x00ff00)
-    embed.set_footer(text="Made with ❤️ by Wallvon")
-    embed.set_author(name="Egroid")
-    embed.add_field(name="Where is the source code?", value="https://github.com/Wallvon/egroidbot", inline=True)
+    embed = discord.Embed(title="Version", description="I'm now on version 1.0", color=0x00ff00)
+    embed.set_footer(text="Made with ❤️ by Lenaa")
+    embed.set_author(name="Wave")
+    embed.add_field(name="Prefix", value="%", inline=True)
     await bot.say(embed=embed)
 
 #botinfo
@@ -173,7 +173,7 @@ async def botinfo(ctx):
 async def serverinfo(ctx):
     """Gives info about the server where the command was executed."""
     embed = discord.Embed(name="{}'s info".format(ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
-    embed.set_author(name="Egroid")
+    embed.set_author(name="Wave")
     embed.add_field(name="Name", value=ctx.message.server.name, inline=True)
     embed.add_field(name="ID", value=ctx.message.server.id, inline=True)
     embed.add_field(name="Roles", value=len(ctx.message.server.roles), inline=True)
@@ -188,33 +188,21 @@ async def serverinfo(ctx):
 @bot.command(pass_context=True)
 async def support(ctx):
     """Gives you a link to the support server."""
-    embed = discord.Embed(title="Need help? Click on the link below to join our support server!", description="https://discord.gg/HGEfujy", color=0x00ff00)
-    embed.set_footer(text="Made with ❤️ by Wallvon")
-    embed.set_author(name="Egroid")
+    embed = discord.Embed(title="Need help? Click on the link below to join our support server!", description="https://discord.gg/DRhcT4P", color=0x00ff00)
+    embed.set_footer(text="Made with ❤️ by Lenaa")
+    embed.set_author(name="Wave")
     embed.add_field(name="Need more help?", value="Ask a Developer.", inline=True)
     await bot.say(embed=embed)
 
 #support
 
-#invite
-
-@bot.command(pass_context=True)
-async def invite(ctx):
-    """Gives you a link to invite the bot."""
-    embed = discord.Embed(title="Want to invite Egroid? Click on the link below!", description="https://discordapp.com/oauth2/authorize?client_id=475685785040060437&permissions=2080898167&scope=bot", color=0x00ff00)
-    embed.set_footer(text="Made with ❤️ by Wallvon")
-    embed.set_author(name="Egroid")
-    embed.add_field(name="Make Sure To Share Egroid With Friends.", value="Thanks For Using Egroid.", inline=True)
-    await bot.say(embed=embed)
-
-#invite
 
 #murder
 
 @bot.command(pass_context=True)
 async def murder(ctx, user: discord.Member):
     """Murders someone. Usage: %murder [Username]."""
-    await bot.say("Egroid: You're gonna die! :gun:")
+    await bot.say("Wave: You're gonna die! :gun:")
     await bot.say("A person murderd, {}. Ya Dead Now!".format(user.name))
 
 #murder
@@ -224,7 +212,7 @@ async def murder(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 async def heal(ctx, user: discord.Member):
     """Heals someone. Usage: %heal [Username]."""
-    await bot.say("Egroid: Here get a bandage")
+    await bot.say("Wave: Here get a bandage")
     await bot.say("A person healed, {}. Ya Alive Now!".format(user.name))
 
 #heal
