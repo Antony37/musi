@@ -1,6 +1,6 @@
-# Egroid
+# Wave
 
-Egroid is an open source Discord.py bot.
+Wave is an Music Discord.py bot.
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -16,6 +16,6 @@ A server/computer (I host mine on Heroku)
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-Thanks for using egroid and please enjoy it!
+Thanks for using Wave and please enjoy it!
 
-Made with ❤️ by Wallvon
+Made with ❤️ by Lenaa
