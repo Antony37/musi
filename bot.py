@@ -269,8 +269,7 @@ if __name__ == "__main__":
 async def servers(ctx):
     """List of the Servers the Bot is on"""
     for s in bot.servers:
-        await bot.say("Bot runs on the Servers:\n"))
-        await bot.say(f' ```{s.name}```')
+        await bot.say(f"Bot runs on the Servers:\n```{s.name}```"))
 
 #server
 
